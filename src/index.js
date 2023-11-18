@@ -1,10 +1,15 @@
 const path = require("path");
 const express = require("express");
 const handlebars = require("express-handlebars");
+
+const route = require("./routes/index");
+const db = require("./config/db");
+
+//Connect to DB
+db.Connect();
+
 const myWeb = express();
 const port = 3000;
-const route = require("./routes/index");
-
 myWeb.use(express.static(path.join(__dirname, "public"))); //static file
 myWeb.use(
   express.urlencoded({
