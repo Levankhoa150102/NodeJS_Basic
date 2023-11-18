@@ -21,4 +21,18 @@ async function getAllProducts() {
     console.log(error);
   }
 }
-module.exports = { getAllProducts };
+
+async function getProductById(id) {
+  try {
+    await mssql.connect(config);
+    const request = new mssql.Request();
+    const result = await request.query(
+      `SELECT * FROM [dbo].[product] WHERE id = '${id}'`
+    );
+    const product = result.recordset;
+    return product;
+  } catch (error) {
+    console.log(error);
+  }
+}
+module.exports = { getAllProducts, getProductById };

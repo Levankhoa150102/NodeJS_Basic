@@ -78,9 +78,10 @@
     padding: 12px 0;
     margin-left: 12px;
     text-align: left;
+    text-decoration: none;
 } 
 .men_product_content_items .description {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 450;
     font-family: 'Lato', sans-serif;
     margin-top: 6px;
