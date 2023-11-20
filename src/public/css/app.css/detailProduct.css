@@ -5,10 +5,18 @@
 .product-info{
     display: flex;
     margin-top: 2rem;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+}
+.product-info-image{
+    width: 50%;
+}
+.product-info-detail{
+    width: 50%;
+    padding: 0 20px;
 }
 .product-info-image-img{
-    width: 588px;
+    /* width: 588px; */
+    width: 70%;
     height: 690px;
     border-radius: 20px;
 }
@@ -19,8 +27,8 @@
 .product-info-detail-name{
     font-size: 4rem;
     font-weight: 600;
-    margin-bottom: 2.6rem;
     font-family: 'Kanit', sans-serif;
+    line-height: 1;
 }
 .product-info-detail-price{
     font-size: 30px;
@@ -138,7 +146,8 @@
 /*Image side*/
 .img-side {
     display: flex;
-    width: 588px;
+    /* width: 588px; */
+    width: 36%;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
@@ -161,27 +170,34 @@
 }
 .product-description-title{
     position: relative;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--primary-color);
     padding-bottom: 14px;
     border-bottom: 2px solid #EAECF0;
     font-family: 'kanit', sans-serif;
 }
+.product-description-content {
+    margin-top: 20px;
+    font-size: rem;
+    line-height: 1;
+
+}
 .product-description-highlight {
     position: absolute;
     background-color: #0077C0;
-    width: 11.5%;
+    width: 9%;
     height: 2px;
     bottom: -2px;
 }
 .product-overview {
-    font-size: 18px;
+    font-size: 2.5rem;
     font-weight: 600;
+    margin: 1rem 0;
     font-family: 'Kanit', sans-serif;
 }
 .product-detail{
-    font-size: 14px;
+    font-size: 1.8rem;
     color: #726C6C;
     line-height: 24px;
 }

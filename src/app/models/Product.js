@@ -9,11 +9,13 @@ const config = {
     trustServerCertificate: false, // change to true for local dev / self-signed certs
   },
 };
-async function getAllProducts() {
+async function getMenProducts() {
   try {
     await mssql.connect(config);
     const request = new mssql.Request();
-    const result = await request.query("SELECT TOP 8 * FROM [dbo].[product]");
+    const result = await request.query(
+      "SELECT TOP 8 * FROM [dbo].[product] WHERE category = 'Nam'"
+    );
 
     const products = result.recordset;
     return products;
@@ -21,7 +23,34 @@ async function getAllProducts() {
     console.log(error);
   }
 }
+async function getWomenProducts() {
+  try {
+    await mssql.connect(config);
+    const request = new mssql.Request();
+    const result = await request.query(
+      "SELECT TOP 8 * FROM [dbo].[product] WHERE category = N'Nữ'"
+    );
 
+    const products = result.recordset;
+    return products;
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function getChildrenProducts() {
+  try {
+    await mssql.connect(config);
+    const request = new mssql.Request();
+    const result = await request.query(
+      "SELECT TOP 8 * FROM [dbo].[product] WHERE category = N'Trẻ em'"
+    );
+
+    const products = result.recordset;
+    return products;
+  } catch (error) {
+    console.log(error);
+  }
+}
 async function getProductById(id) {
   try {
     await mssql.connect(config);
@@ -35,4 +64,24 @@ async function getProductById(id) {
     console.log(error);
   }
 }
-module.exports = { getAllProducts, getProductById };
+
+//create new product
+async function createProduct(product) {
+  try {
+    await mssql.connect(config);
+    const request = new mssql.Request();
+    const result = await request.query(
+      `INSERT INTO [dbo].[product] (id, name, category, price, amount, description) VALUES ('${product.id}', '${product.name}', '${product.category}', '${product.price}', '${product.amount}', '${product.description}')`
+    );
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+module.exports = {
+  getMenProducts,
+  getWomenProducts,
+  getChildrenProducts,
+  getProductById,
+  createProduct,
+};

@@ -1,132 +1,38 @@
-{{!-- 
+<div class="home_image">
+        <img class="home_image" src="/img/ssFALL_WINTER.png" alt="home-image">
+    </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrenZ_Header</title>
-    <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/assets/css/modules/menproduct_page.css">
-    <link rel="stylesheet" href="/assets/css/modules/header_footer.css">
-    <link rel="stylesheet" href="/assets/css/icon/fontawesome-free-6.4.2-web/css/all.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;400;500&family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- BODY SESSION -->
-    <div id="men_items">
-        <div class="men_items">
-            <h2>Trang chủ</h2>
-            <h1>Tất cả sản phẩm cho nam giới</h1>
+    <div id="famous_items">
+        <div class="famous_items">
+            <h1>Sản phẩm nổi bật</h1>
         </div>
     </div>
 
-    <!-- filter and category-->
-    <section class="filter">
-        <div class="container">
-            <div class="row">
-                <div class="filter_left">
-                    <div class="filter-section">
-                        <h3>Khoảng giá (VNĐ)</h3>
-                        <label class="container1">Nhỏ hơn 100.000đ
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">Từ 100.000đ - 200.000đ
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">Từ 200.000đ - 350.000đ
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">Từ 350.000đ - 600.000đ
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">Lớn hơn 600.000đ
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                          
-                        
-                       
-                    </div>
-                    <div class="filter-section">
-                        <h3>Kích thước</h3>
-                        <label class="container1">S
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">M
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">L
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">XL
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container1">XXL
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="filter_right row">
-                    <div class="filter_right_items">
-                        <label for="category">Sắp xếp theo</label>
-                        <select id="category">
-                            <option value="all_clothing">Tất cả</option>
-                            <option value="ex_clothing">Đắt nhất</option>
-                            <option value="cheap_clothing">Rẻ nhất</option>
-                            <option value="latest_clothing">Mới nhất</option>
-                        </select>     
-                    </div>
-
-                    <div class="men_product_content row">   
-                        {{#each products}} 
-
-                         <div= class="men_product_content_items">
-                            <a href="/home/{{this.id}}">
-                                <img class="detail_product" src="{{this.img}}" alt="{{this.name}}"  >
-                            </a>
-
-                            <a href="/home/{{this.id}}">
-                                <p class="description">{{this.name}}</p>                              
-                            </a>
-                            <p class="price">{{this.price}}đ</p>
-                        </div>
-                        {{/each}}
-                    </div>
-
-                    <div class="filter_right_numbers ">
-                        <div class="pagination">
-                            <ul>
-                              <li><span class="pagination-arrow">&#171</span></li>
-                              <li><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li><a href="#">3</a></li>
-                              <li><a href="#">4</a></li>
-                              <li><a href="#">5</a></li>
-                              <li><span class="pagination-arrow">&#187</span></li>                       
-                            </ul>
-                          </div>
-                    </div>
-                   
-                </div>
-                
+    <div class="home_products_grid">    
+        {{#each products}}
+        <div class="home_product">
+            <div class="home_product_items">
+                <a href="/home/{{this.id}}">
+                <img class="detail_product" src="{{this.img}}" alt="{{this.name}}">
+            </a>
+            <a href="/home/{{this.id}}">
+                <p class="description">{{this.name}}</p>
+            </a>
+            <p class="price">{{this.price}}đ</p>
             </div>
-            
         </div>
-    </section>
+        {{/each}}
+    </div>
 
-</body>
-</html> --}}
-<h1>HOME PAGE</h1>
+    <div class="homepage_more">
+        <a class="homepage_more_link" href="" target="_blank" >Xem thêm</a>
+    </div>
+
+    <div class="home_image2">
+        <img class="home_image2" src="/img/ssdBanner-50-thudong2_1.png" alt="home-image">
+        <div class="home_image2_content">
+            <h2>SALE 50%</h2>
+            <p>Giới hạn thời gian</p>
+        </div>
+        
+    </div>

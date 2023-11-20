@@ -73,7 +73,7 @@
                             Chính sách trả hàng
                         </div>
                         <div class="product-info-detail-description">Hoàn trả hàng miễn phí trong vòng 30 ngày.
-                            <a href="" class="product-info-detail-refund-content-link">Xem chi tiết</a>
+                            {{!-- <a href="" class="product-info-detail-refund-content-link">Xem chi tiết</a> --}}
                         </div>
     
                     </div>
@@ -100,21 +100,23 @@
             </div>
             <div class="product-description-content">
                 <p class="product-overview">Tổng quan</p>
-                {{!-- <ul class="product-detail">
-                    <li>Lớp lót 100% cotton được chải cho cảm giác mềm mại, mịn màng.</li>
+                <ul class="product-detail">
+                    {{!-- <li>Lớp lót 100% cotton được chải cho cảm giác mềm mại, mịn màng.</li>
                     <li>Chất vải mịn, co giãn nhiều.</li>
                     <li>Đường may phía sau cổ áo được ẩn đi bằng băng dính để tạo sự thoải mái.</li>
                     <li>Kiểu dáng thoải mái</li>
                     <li>Cổ được làm bằng vải gân</li>
-                    <li>Thiết kế kẻ sọc đa năng</li>
+                    <li>Thiết kế kẻ sọc đa năng</li> --}}
+                    {{this.description}}
                 </ul>
-                <p class="product-overview">Chất liệu</p>
+                
+                {{!-- <p class="product-overview">Chất liệu</p>
                 <p class="product-detail"> VẢI <br>
                     100% Bông <br>
                     HƯỚNG DẪN GIẶT <br>
                     Giặt máy nước lạnh, Không giặt khô, Không sấy khô <br>
                     - Những hình ảnh sản phẩm có thể bao gồm Những màu không có sẵn
-                </p>
+                </p> --}}
                 <p class="product-overview">Thông tin thêm</p>
                 <p class="product-detail">
                     1. Xin vui lòng đọc thông tin kích thước trước khi chọn kích thước, cảm ơn bạn. <br>
@@ -124,8 +126,8 @@
                     3. Đo lường thủ công sẽ có một sai số 1-3 cm, xin vui lòng hiểu được. <br>
                     Cảm ơn! <br>
                     Cảm ơn bạn đã ghé thăm cửa hàng của chúng tôi.
-                </p> --}}
-                {{this.description}}
+                </p>
+                
             </div>
         </div>
 
