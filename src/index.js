@@ -29,5 +29,5 @@ myWeb.set("views", path.join(__dirname, "resources/views"));
 route(myWeb);
 
 myWeb.listen(port, () =>
-  console.log(`Example myWeb listening at http://localhost:${port}!`)
+  console.log(`Example myWeb listening at http://localhost:${port}/home!`)
 );
