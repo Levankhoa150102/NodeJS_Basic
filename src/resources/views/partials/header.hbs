@@ -4,8 +4,12 @@
             <a href="/"><img src="/img/Header_Logo_TrenZ.png" alt="logo" class="logo_img"></a>
         </div>
         <div class="header_search">
-                <input class="header_search_input" type="text" name="search" placeholder="Tìm kiếm...">
+            <form method="GET" action="./search" >
+                <input class="header_search_input" type="text" name="keyword" placeholder="Tìm kiếm...">
                 <button class="header_search_btn" type="submit"><i style="color:var(--white-color)" class="fas fa-search"></i></button>
+            </form>
+                
+                
         </div>
         <div class="header_hotline">
             <i class="fa-solid fa-phone-volume"></i>
@@ -15,22 +19,27 @@
     <!-- NAVBAR SESSION -->
     <div id="navbar">
         <ul class="navbar_menu_list">
-            <li><a href="/home">Trang chủ</a></li>
+            <li><a href="/">Trang chủ</a></li>
             <li><a href="/product">Nam</a></li>
             <li><a href="/womenProduct">Nữ</a></li>
             <li><a href="/childrenProduct">Trẻ em</a></li>
             <li><a href="/about">Về TrenZ</a></li>
         </ul>
         <div class="navbar_user">
-            <!-- <a href=""><i class="navbar_btn fas fa-user"></i></a>
-            <p class="login_user">khoalee</p> -->
-            <p class="navbar_login_signup"> 
+            <a href=""><i class="navbar_btn fas fa-user"></i></a>
+            <p class="login_user">khoalee</p>
+            {{!-- <p class="navbar_login_signup"> 
                 <a class="navbar_login" href="">Đăng nhập</a>
                 <a class="navbar_signup" href="">Đăng ký</a>
-            </p>
+            </p> --}}
         </div>
         <div class="navbar_cart">
-            <a href=""><i class="navbar_btn fas fa-shopping-cart"></i></a>
+            <a href="/cart/checkout"><i class="navbar_btn fas fa-shopping-cart"></i>
+            {{!-- <p class="cart_figure">5</p> --}}
+            </a>
         </div>
     </div>
 </div>
+<script>
+    
+</script>

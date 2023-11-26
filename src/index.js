@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const handlebars = require("express-handlebars");
-
+var session = require("express-session");
 const route = require("./routes/index");
 const db = require("./config/db");
 
@@ -25,6 +25,22 @@ myWeb.engine(
 myWeb.set("view engine", "hbs");
 myWeb.set("views", path.join(__dirname, "resources/views"));
 
+//Messages
+myWeb.use(require("connect-flash")());
+myWeb.use(function (req, res, next) {
+  res.locals.messages = require("express-messages")(req, res);
+  next();
+});
+
+//session
+myWeb.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true },
+  })
+);
 //Routes init
 route(myWeb);
 

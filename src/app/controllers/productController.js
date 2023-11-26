@@ -30,7 +30,14 @@ class ProductController {
       })
       .catch(next);
   }
-
+  addTocart(req, res, next) {
+    console.log(req.params.id);
+    Products.getProductById(req.params.id)
+      .then((id_product) => {
+        res.render("cart", { id_product: id_product });
+      })
+      .catch(next);
+  }
   create(req, res, next) {
     res.render("product/createProduct");
   }

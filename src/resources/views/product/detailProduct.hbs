@@ -51,11 +51,11 @@
                 <!-- Thanh toán -->
                 <div class="product-info-detail-button product-line">
     
-                    <a href="" class="product-btn product-info-detail-button-add">
+                    <a href="/cart/add/{{this.id}}" class="product-btn product-info-detail-button-add">
                         <i class="fa-solid fa-cart-plus"></i>
                         Thêm vào giỏ hàng
                     </a>
-                    <a href="" class="product-btn product-info-detail-button-buy">Mua ngay</a>
+                    <a href="/cart/add/checkout/{{this.id}}" class="product-btn product-info-detail-button-buy">Mua ngay</a>
                 </div>
     
                 <!-- Hoàn tiền & Vận chuyển -->
@@ -206,3 +206,12 @@
         </div>
         {{/each}}
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var myLink = document.getElementById('.product-info-detail-button a');
+            myLink.addEventListener('click', function (event) {
+                event.preventDefault();
+            });
+        });
+
+    </script>
