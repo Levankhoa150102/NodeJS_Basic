@@ -26,7 +26,10 @@ class ProductController {
   show(req, res, next) {
     Products.getProductById(req.params.id)
       .then((id_product) => {
-        res.render("product/detailProduct", { id_product: id_product });
+        res.render("product/detailProduct", {
+          id_product: id_product[0],
+          relative_products: id_product[1],
+        });
       })
 
       .catch(next);

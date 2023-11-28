@@ -55,13 +55,20 @@ async function getChildrenProducts() {
 }
 async function getProductById(id) {
   try {
+    var product_category = id.slice(0, 1);
+
     await mssql.connect(config);
     const request = new mssql.Request();
-    const result = await request.query(
+    const result_1 = await request.query(
       `SELECT * FROM [dbo].[product] WHERE id = '${id}'`
     );
-    const product = result.recordset;
-    return product;
+    const result_2 = await request.query(
+      `SELECT TOP 6 * FROM [dbo].[product] WHERE [id] LIKE '${product_category}%' ORDER BY NEWID()`
+    );
+
+    const product = result_1.recordset;
+    const category_products = result_2.recordset;
+    return [product, category_products];
   } catch (error) {
     console.log(error);
   }

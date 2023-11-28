@@ -131,7 +131,7 @@
                 
             </div>
         </div>
-
+      {{/each}}
         <!-- Sản phẩm liên quan -->
         <div class="Similar-product">
             <div class="Similar-product-title">
@@ -139,73 +139,25 @@
             </div>
             <div class="Similar-product-content">
                 <i class="img-side-btn fa-solid fa-chevron-left"></i>
+                {{#each relative_products}}
                 <div class="Similar-product-item">
-                    <img src="/assets/css/images/Detail_Product/si1.jpg" alt="" class="Similar-product-item-image-img">
+                    <a href="/womenProduct/{{this.id}}">
+                        <img src="{{this.img}}" alt="" class="Similar-product-item-image-img">
+                    </a>
                     <div class="Similar-product-info">
                         <div class="Similar-product-item-name">
-                            <a href="" class="Similar-product-item-link">Set bộ đồ lịch sự dành cho bé</a>   
+                            <a href="/womenProduct/{{this.id}}" class="Similar-product-item-link">{{this.name}}</a>   
                         </div>
-                        <div class="Similar-product-item-price">449.000đ</div>
-                        <div class="Similar-product-item-stock">Còn 500 sản phẩm</div>
+                        <div class="Similar-product-item-price">{{this.price}}đ</div>
+                        <div class="Similar-product-item-stock">Còn {{this.amount}} sản phẩm</div>
                     </div>
+                    
                 </div>
-                <div class="Similar-product-item">
-                    <img src="/assets/css/images/Detail_Product/si2.jpg" alt="" class="Similar-product-item-image-img">
-                    <div class="Similar-product-info">
-                        <div class="Similar-product-item-name">
-                            
-                            <a href="" class="Similar-product-item-link">Áo yếm kèm theo nơ đen, phù hợp cho bé</a>
-                        </div>
-                        <div class="Similar-product-item-price">350.000đ</div>
-                        <div class="Similar-product-item-stock">Còn 15 sản phẩm</div>
-                    </div>
-                </div>
-                <div class="Similar-product-item">
-                    <img src="/assets/css/images/Detail_Product/si3.jpg" alt="" class="Similar-product-item-image-img">
-                    <div class="Similar-product-info">
-                        <div class="Similar-product-item-name">
-                            
-                            <a href="" class="Similar-product-item-link">Đồ bộ thun thể thao thoáng mát</a>
-                        </div>
-                        <div class="Similar-product-item-price">100.000đ</div>
-                        <div class="Similar-product-item-stock">Còn 5000 sản phẩm</div>
-                    </div>
-                </div>
-                <div class="Similar-product-item">
-                    <img src="/assets/css/images/Detail_Product/si4.jpg" alt="" class="Similar-product-item-image-img">
-                    <div class="Similar-product-info">
-                        <div class="Similar-product-item-name">
-                            <a href="" class="Similar-product-item-link">Đồ bộ thun thể thao co dãn tốt</a>
-                        </div>
-                        <div class="Similar-product-item-price">200.000đ</div>
-                        <div class="Similar-product-item-stock">Còn 421 sản phẩm</div>
-                    </div>
-                </div>
-                <div class="Similar-product-item">
-                    <img src="/assets/css/images/Detail_Product/si5.jpg" alt="" class="Similar-product-item-image-img">
-                    <div class="Similar-product-info">
-                        <div class="Similar-product-item-name">
-                            
-                            <a href="" class="Similar-product-item-link">Áo thun dành cho bé thích đi dã ngoại</a>
-                        </div>
-                        <div class="Similar-product-item-price">149.000đ</div>
-                        <div class="Similar-product-item-stock">Còn 5 sản phẩm</div>
-                    </div>
-                </div>
-                <div class="Similar-product-item">
-                    <img src="/assets/css/images/Detail_Product/si6.jpg" alt="" class="Similar-product-item-image-img">
-                    <div class="Similar-product-info">
-                        <div class="Similar-product-item-name">    
-                            <a href="" class="Similar-product-item-link">Áo quần dạ quang cực kì ngầu cho bé</a>
-                        </div>
-                        <div class="Similar-product-item-price">299.000đ</div>
-                        <div class="Similar-product-item-stock">Còn 200 sản phẩm</div>
-                    </div>
-                </div>
+                {{/each}}
                 <i class="img-side-btn fa-solid fa-chevron-right"></i>
             </div>
         </div>
-        {{/each}}
+      
     </div>
     <script>
       /*  document.addEventListener('DOMContentLoaded', function () {
@@ -227,7 +179,13 @@
         
         sizeElements.forEach(function(element) {
         var dataSizeName = element.getAttribute('data-name');
+
         element.addEventListener('click', function() {
+            sizeElements.forEach(function(element) {
+                element.classList.remove('active');
+            });
+            element.classList.add('active');
+
             total_amount.classList.add('style');
             total_amount.style.display = 'none';
 
