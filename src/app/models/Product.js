@@ -67,6 +67,21 @@ async function getProductById(id) {
   }
 }
 
+async function getProductSize(id) {
+  try {
+    await mssql.connect(config);
+    const request = new mssql.Request();
+    const result = await request.query(
+      `SELECT * FROM [dbo].[product] WHERE id = '${id}'`
+    );
+    const product = result.recordset;
+    console.log(product[0].size);
+    return product;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 async function createProduct(product) {
   try {
     await mssql.connect(config);
@@ -95,6 +110,7 @@ async function addProductToCart(id, list_cart) {
         id: productItem[0].id,
         name: productItem[0].name,
         image: productItem[0].img,
+        size: productItem[0].size,
         price: productItem[0].price,
         totalprice: productItem[0].price,
         quantity: 1,
@@ -115,6 +131,7 @@ async function addProductToCart(id, list_cart) {
           id: productItem[0].id,
           name: productItem[0].name,
           image: productItem[0].img,
+          size: productItem[0].size,
           price: productItem[0].price,
           totalprice: productItem[0].price,
           quantity: 1,
@@ -130,6 +147,10 @@ async function addProductToCart(id, list_cart) {
     console.log(error);
   }
 }
+async function SizeAndQuantity(id, size) {
+  var oj_size = JSON.parse(list_cart[0].size);
+  console.log(oj_size[String(size)]);
+}
 async function showToCart(cart_products, cart_total) {
   try {
     list_cart = cart_products;
@@ -140,6 +161,7 @@ async function showToCart(cart_products, cart_total) {
     console.log(error);
   }
 }
+
 module.exports = {
   getMenProducts,
   getWomenProducts,

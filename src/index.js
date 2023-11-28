@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const handlebars = require("express-handlebars");
-var session = require("express-session");
+const session = require("express-session");
 const route = require("./routes/index");
 const db = require("./config/db");
 
@@ -10,6 +10,7 @@ db.Connect();
 
 const myWeb = express();
 const port = 3000;
+
 myWeb.use(express.static(path.join(__dirname, "public"))); //static file
 myWeb.use(
   express.urlencoded({
@@ -27,11 +28,6 @@ myWeb.set("views", path.join(__dirname, "resources/views"));
 
 //Messages
 myWeb.use(require("connect-flash")());
-myWeb.use(function (req, res, next) {
-  res.locals.messages = require("express-messages")(req, res);
-  next();
-});
-
 //session
 myWeb.use(
   session({

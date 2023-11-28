@@ -28,6 +28,7 @@ class ProductController {
       .then((id_product) => {
         res.render("product/detailProduct", { id_product: id_product });
       })
+
       .catch(next);
   }
   addTocart(req, res, next) {

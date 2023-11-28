@@ -140,9 +140,9 @@ a i:hover{
     position: absolute;
     left : 15px;
     bottom: 15px;
-    padding: 0.5rem;
+    padding: 0.1rem 0.5rem;
     background-color: red;
     color: var(--white-color);
     border-radius: 50%;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
 }

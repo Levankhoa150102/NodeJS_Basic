@@ -16,11 +16,21 @@ class CartController {
   // }
   add(req, res, next) {
     var product_id = req.params.product;
-    console.log(product_id);
     Cart.addProductToCart(product_id, carts).then(function (listsProduct) {
       carts = listsProduct[0];
       cart_total = listsProduct[1];
-      console.log("thêm sản phẩm thành công" + carts.length);
+      res.redirect("back");
+    });
+  }
+  getDetail(req, res, next) {
+    var product_id = req.params.product;
+    console.log(product_id);
+    var action = req.query.action;
+    Cart.SizeAndQuantity(product_id, size, action).then(function (
+      listsProduct
+    ) {
+      carts = listsProduct[0];
+      cart_total = listsProduct[1];
       res.redirect("back");
     });
   }
@@ -55,7 +65,6 @@ class CartController {
           case "clear":
             cart_total -= Number(carts[i].totalprice);
             carts.splice(i, 1);
-            delete carts[i];
             if (carts.length == 0) {
               cart_total = 0;
             }

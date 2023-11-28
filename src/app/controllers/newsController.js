@@ -1,11 +1,16 @@
-class NewController {
-  //[GET] /news
-  index(req, res) {
-    res.render("news");
-  }
-  //[GET] /news/:slug
-  show(req, res) {
-    res.send("NEWS DETAIL!!!");
+const Cart = require("../models/Product");
+let cart_total = 0;
+class CartController {
+  index(req, res, next) {
+    Cart.getSize() // 1
+      .then(function (size) {
+        res.render("news", {
+          title: "Giỏ hàng",
+          size: size,
+        });
+      })
+      .catch(next);
   }
 }
-module.exports = new NewController();
+
+module.exports = new CartController();

@@ -5,12 +5,9 @@ const womenRouter = require("./women");
 const aboutRouter = require("./about");
 const cartRouter = require("./cart");
 const adminRouter = require("./admin");
+const newsRouter = require("./news");
 function route(myWeb) {
-  // myWeb.get("*", function (req, res, next) {
-  //   res.locals.cart = req.session.cart;
-  //   next();
-  // });
-
+  myWeb.use("/news", newsRouter);
   myWeb.use("/admin", adminRouter);
   myWeb.use("/cart", cartRouter);
   myWeb.use("/about", aboutRouter);
